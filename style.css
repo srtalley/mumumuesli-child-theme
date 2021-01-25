@@ -2,7 +2,7 @@
 Theme Name: HighendWP Child Theme
 Template: HighendWP
 Author: Dusty Sun LLC
-Version: 1.6.5
+Version: 1.6.5a
 Updated: 2021-01-25
 */
 
@@ -311,6 +311,7 @@ label[for="mailchimp_woocommerce_newsletter"].woocommerce-form__label.woocommerc
     align-items: center;
     text-transform: none;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 #main-wrapper .pay-with-cc-product-page a.single_add_to_cart_button.button.alt:hover {
