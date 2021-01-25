@@ -471,6 +471,10 @@ class MuMuMuesli_WooCommerce {
     }
 
     public function dst_wp_schema_pro_schema_product($schema, $data, $post) {
+
+        $schema['itemCondition'] = 'new';
+        $schema['mpn'] = $schema['sku'];
+
         $product_permalink = get_the_permalink($post->ID);
 
         if(function_exists('EWD_URP_Get_Aggregate_Score')) {
@@ -512,6 +516,7 @@ class MuMuMuesli_WooCommerce {
                 )
             );
         }
+
         return $schema;
 
     }
