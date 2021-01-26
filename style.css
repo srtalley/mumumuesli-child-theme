@@ -2,9 +2,137 @@
 Theme Name: HighendWP Child Theme
 Template: HighendWP
 Author: Dusty Sun LLC
-Version: 1.6.5a
+Version: 1.6.5e
 Updated: 2021-01-25
 */
+
+
+/*WP Live Frankie B Edits*/
+
+
+/*Hide Product Count Widget*/
+
+.hb-woo-wrapper ul.sort-count .current-li {
+    display: none;
+}
+
+
+/*End WP Live Frankie B Edits*/
+
+
+/*Load Fonts*/
+
+h3,
+h3.title-class,
+.hb-callout-box h3,
+.hb-gal-standard-description h3 {
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0px;
+    font-weight: normal;
+}
+
+h4,
+.widget-item h4,
+#respond h3,
+.content-box h4,
+.feature-box h4.bold {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    font-weight: 500;
+}
+
+h5,
+#comments h5,
+#respond h5,
+.testimonial-author h5 {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0px;
+}
+
+h6,
+h6.special {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0px;
+}
+
+#pre-footer-area {
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 0px;
+    font-weight: normal;
+}
+
+h1,
+article.single h1.title,
+#hb-page-title .light-text h1,
+#hb-page-title .dark-text h1 {
+    font-family: "Roboto", sans-serif;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: 0px;
+}
+
+body,
+.team-position,
+.hb-single-next-prev .text-inside,
+.hb-dropdown-box.cart-dropdown .buttons a,
+input[type=text],
+textarea,
+input[type=email],
+input[type=password],
+input[type=tel],
+#fancy-search input[type=text],
+#fancy-search .ui-autocomplete li .search-title,
+.format-quote .quote-post-wrapper blockquote,
+table th,
+.hb-button,
+.woocommerce #payment #place_order,
+.woocommerce-page #payment #place_order,
+input[type=submit],
+a.read-more,
+blockquote.pullquote,
+blockquote,
+.hb-skill-meter .hb-skill-meter-title,
+.hb-tabs-wrapper .nav-tabs li a,
+#main-wrapper .coupon-code input.button,
+#main-wrapper .form-row input.button,
+#main-wrapper input.checkout-button,
+#main-wrapper input.hb-update-cart,
+.woocommerce-page #main-wrapper .shipping-calculator-form-hb button.button,
+.hb-accordion-pane,
+.hb-accordion-tab {
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    line-height: 25px;
+    letter-spacing: 0px;
+    font-weight: normal;
+}
+
+#hb-side-menu li a,
+#main-nav ul.sub-menu li a,
+#main-nav ul.sub-menu ul li a,
+#main-nav,
+#main-nav li a,
+.light-menu-dropdown #main-nav>li.megamenu>ul.sub-menu>li>a,
+#main-nav>li.megamenu>ul.sub-menu>li>a {
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    letter-spacing: 0px;
+    font-weight: normal;
+    text-transform: none;
+}
+
+
+/*End of Load Fonts Locally instead of through theme*/
 
 
 /* Menu Items */
@@ -90,6 +218,10 @@ Updated: 2021-01-25
 
 .single h1.entry-title {
     display: block !important;
+    font-family: 'Museo500Regular', Arial, Helvetica, sans-serif !important;
+}
+
+#hb-blog-posts .post-content h2 {
     font-family: 'Museo500Regular', Arial, Helvetica, sans-serif !important;
 }
 
