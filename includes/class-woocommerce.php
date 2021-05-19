@@ -152,8 +152,8 @@ class MuMuMuesli_WooCommerce {
         if(!is_product()) {
             echo '<div class="reviews-wrapper"><div class="container"><h2 class="roboto">Reviews</h2>';
             echo '<div class="floating-review-block">';
-            echo '<a class="floating-review" href="/submit-review">Leave a Review on MuMuMuesli.com</a>';
-            echo '<a class="floating-review google-review" target="_blank" href="https://search.google.com/local/writereview?placeid=ChIJI12gWbqh3okRsvijFELDtvA"><img class="google-review-img" width="200" data-pin-nopin="true" src="' . get_stylesheet_directory_uri() . '/images/review_us_on_google_w.png"></a>';
+            echo '<a class="floating-review" href="/submit-review">Leave a Review</a>';
+            // echo '<a class="floating-review google-review" target="_blank" href="https://search.google.com/local/writereview?placeid=ChIJI12gWbqh3okRsvijFELDtvA"><img class="google-review-img" width="200" data-pin-nopin="true" src="' . get_stylesheet_directory_uri() . '/images/review_us_on_google_w.png"></a>';
             echo '</div>';
             echo do_shortcode('[ultimate-reviews]');
             echo '</div></div>';
@@ -187,24 +187,14 @@ class MuMuMuesli_WooCommerce {
                 <table width="100%" align="left" border="0" cellpadding="0" cellspacing="0" style="border-radius: 2px;">
                     <tr>
                         <td class="twoColumns" style="padding: 0;">
-                            <table class="flexibleContainer" style="border-collapse:collapse;" width="50%" cellspacing="0" cellpadding="0" border="0" align="left" height="90">
+                            <table class="flexibleContainer" style="border-collapse:collapse;" width="200" cellspacing="0" cellpadding="0" border="0" align="left" height="50">
                                 <tr>
-                                    <td align="center" bgcolor="#e03243" style="font-size: 22px; font-weight: 600; color: #ffffff; line-height: 26px;">
-                                        <a href="https://mumumuesli.com/submit-review/" target="_blank" style="color: #ffffff; text-decoration: none;">Leave a Review on MuMuMuesli.com</a>
+                                    <td align="center" bgcolor="#e03243" style="font-size: 20px; font-weight: 600; color: #ffffff; line-height: 26px;">
+                                        <a href="https://search.google.com/local/writereview?placeid=ChIJI12gWbqh3okRsvijFELDtvA" target="_blank" style="color: #ffffff; text-decoration: none;">Leave a Review</a>
                                     </td>
                                 </tr>
                             </table>
-                            <table class="flexibleContainer" style="border-collapse:collapse;" width="50%" cellspacing="0" cellpadding="0" border="0" align="right" height="90">
-                                <tr>
-                                    <td align="center" bgcolor="#000">
-                                        <a class="floating-review google-review" target="_blank" href="https://search.google.com/local/writereview?placeid=ChIJI12gWbqh3okRsvijFELDtvA"><img class="google-review-img" width="200"src="' . get_stylesheet_directory_uri() . '/images/review_us_on_google_w.png"></a>
-                                    </td>
-                                </tr>
-                            </table>
-
                         </td>
-
-                        
                     </tr>
                 </table>
                 </td>
@@ -305,8 +295,8 @@ class MuMuMuesli_WooCommerce {
         echo "ewd-urp-wc-active-tab";
         echo "'>";
         echo '<div class="floating-review-block">';
-        echo '<a class="floating-review" href="/submit-review">Leave a Review on MuMuMuesli.com</a>';
-        echo '<a class="floating-review google-review" target="_blank" href="https://search.google.com/local/writereview?placeid=ChIJI12gWbqh3okRsvijFELDtvA"><img class="google-review-img" width="200" data-pin-nopin="true" src="' . get_stylesheet_directory_uri() . '/images/review_us_on_google_w.png"></a>';
+        echo '<a class="floating-review" href="/submit-review">Leave a Review</a>';
+        // echo '<a class="floating-review google-review" target="_blank" href="https://search.google.com/local/writereview?placeid=ChIJI12gWbqh3okRsvijFELDtvA"><img class="google-review-img" width="200" data-pin-nopin="true" src="' . get_stylesheet_directory_uri() . '/images/review_us_on_google_w.png"></a>';
         echo '</div>';
         echo do_shortcode("[ultimate-reviews product_name='Mu Mu Muesli']");
         echo "</div>";
