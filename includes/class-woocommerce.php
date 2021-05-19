@@ -7,6 +7,7 @@ class MuMuMuesli_WooCommerce {
   
     public function __construct() {
 
+    // removed shortcode: [reviews-summary product_name="Mu Mu Muesli"]
 
         if(class_exists('woocommerce')) {
 
@@ -51,11 +52,31 @@ class MuMuMuesli_WooCommerce {
 
             add_action( 'init', array(&$this, 'mumu_remove_product_category_description') );
 
+            // Fix the HighendWP error with SG Cache
+            add_action('init', array($this, 'fix_highend_wp_sg_errors'), 100);
 
+            // Fix the 3.0.1 Ultimate Reviews plugin that is not pulling all the reviews by modifying the post query
+            add_filter( 'ewd_urp_query_args', array($this, 'mumu_ewd_urp_query_args'), 10, 2);
 
         } // end if woocommerce
     } // end function construct
 
+    /** 
+     * Fix for the Highend WP theme that calls WC()->cart on the backend when
+     * the SiteGround optimizer plugin settings are accessed. This unhooks the
+     * Highend WP function and replaces it with a fixed one.
+     */
+    public function fix_highend_wp_sg_errors() {
+        remove_filter( 'highend_custom_js_localized', 'highend_woocommerce_localize_vars' );
+        add_filter( 'highend_custom_js_localized', array($this, 'mumu_highend_woocommerce_localize_vars') );
+    }
+    public function mumu_highend_woocommerce_localize_vars($localized) {
+        $localized['cart_url']   = wc_get_cart_url();
+        if ( is_object( WC()->cart ) ) {
+            $localized['cart_count'] = WC()->cart->get_cart_contents_count();
+        }
+        return $localized;
+    }
 
     /**
      * The theme templates do not implement the
@@ -80,9 +101,10 @@ class MuMuMuesli_WooCommerce {
     */
 
     public function ds_woocommerce_add_standard_checkout(){
-        echo '<div class="wc-checkout-and-paypal-wrapper">';
+
+        echo '<div class="row wc-checkout-and-paypal-wrapper clearfix"><div class="col-9"></div><div class="col-3">';
         do_action( 'woocommerce_proceed_to_checkout' );
-        echo '</div>';
+        echo '</div></div>';
     } 
 
     /**
@@ -129,8 +151,10 @@ class MuMuMuesli_WooCommerce {
     public function add_reviews_to_categories() {
         if(!is_product()) {
             echo '<div class="reviews-wrapper"><div class="container"><h2 class="roboto">Reviews</h2>';
-            //echo do_shortcode('[reviews-summary product_name="Mu Mu Muesli"]');
+            echo '<div class="floating-review-block">';
             echo '<a class="floating-review" href="/submit-review">Leave a Review</a>';
+            // echo '<a class="floating-review google-review" target="_blank" href="https://search.google.com/local/writereview?placeid=ChIJI12gWbqh3okRsvijFELDtvA"><img class="google-review-img" width="200" data-pin-nopin="true" src="' . get_stylesheet_directory_uri() . '/images/review_us_on_google_w.png"></a>';
+            echo '</div>';
             echo do_shortcode('[ultimate-reviews]');
             echo '</div></div>';
         }
@@ -144,7 +168,15 @@ class MuMuMuesli_WooCommerce {
     public function mmu_add_content_specific_email( $email_heading, $email ) {
 
         if ( $email->id == 'new_order' || $email->id == 'customer_processing_order' ||  $email->id == 'customer_invoice' ) {
-            echo '<table width="100%">
+            echo '<style>
+            
+                @media only screen and (max-width: 480px){
+                    .flexibleContainer {
+                        width: 100%;
+                    }
+                }
+            </style>
+            <table width="100%">
             <tr>
             <td align="center" style="padding: 0;">
                 <h2 style="color: #000; margin-bottom: 0;">Love Mu Mu Muesli?</h2>
@@ -152,11 +184,17 @@ class MuMuMuesli_WooCommerce {
             </tr>							<!-- Button -->
             <tr>
             <td align="left" style="padding: 10px 0 20px;">
-                <table width="200" align="left" border="0" cellpadding="0" cellspacing="0" style="border-radius: 2px;" bgcolor="#e03243">
+                <table width="100%" align="left" border="0" cellpadding="0" cellspacing="0" style="border-radius: 2px;">
                     <tr>
-                    <td align="center" font-size: 28px; font-weight: 600; color: #ffffff; line-height: 36px;">
-                        <a href="https://mumumuesli.com/submit-review/" style="color: #ffffff; text-decoration: none;">Leave a Review</a>
-                    </td>
+                        <td class="twoColumns" style="padding: 0;">
+                            <table class="flexibleContainer" style="border-collapse:collapse;" width="200" cellspacing="0" cellpadding="0" border="0" align="left" height="50">
+                                <tr>
+                                    <td align="center" bgcolor="#e03243" style="font-size: 20px; font-weight: 600; color: #ffffff; line-height: 26px;">
+                                        <a href="https://search.google.com/local/writereview?placeid=ChIJI12gWbqh3okRsvijFELDtvA" target="_blank" style="color: #ffffff; text-decoration: none;">Leave a Review</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
                     </tr>
                 </table>
                 </td>
@@ -256,8 +294,10 @@ class MuMuMuesli_WooCommerce {
         echo "<div class='ewd-urp-wc-tab ";
         echo "ewd-urp-wc-active-tab";
         echo "'>";
-        // echo do_shortcode('[reviews-summary product_name="Mu Mu Muesli"]');
+        echo '<div class="floating-review-block">';
         echo '<a class="floating-review" href="/submit-review">Leave a Review</a>';
+        // echo '<a class="floating-review google-review" target="_blank" href="https://search.google.com/local/writereview?placeid=ChIJI12gWbqh3okRsvijFELDtvA"><img class="google-review-img" width="200" data-pin-nopin="true" src="' . get_stylesheet_directory_uri() . '/images/review_us_on_google_w.png"></a>';
+        echo '</div>';
         echo do_shortcode("[ultimate-reviews product_name='Mu Mu Muesli']");
         echo "</div>";
     
@@ -452,6 +492,10 @@ class MuMuMuesli_WooCommerce {
     }
 
     public function dst_wp_schema_pro_schema_product($schema, $data, $post) {
+
+        $schema['itemCondition'] = 'new';
+        $schema['mpn'] = $schema['sku'];
+
         $product_permalink = get_the_permalink($post->ID);
 
         if(function_exists('EWD_URP_Get_Aggregate_Score')) {
@@ -493,6 +537,7 @@ class MuMuMuesli_WooCommerce {
                 )
             );
         }
+
         return $schema;
 
     }
@@ -507,6 +552,15 @@ class MuMuMuesli_WooCommerce {
       
     }
       
+    /** 
+     * Fix version 3.0.1 of Ultimate Reviews which is not returning more than 10
+     * reviews per page. Modifies WP_Query to return all.
+     */
+    public function mumu_ewd_urp_query_args($args, $context) {
+        $args['posts_per_page']	= -1;
+        return $args;
+    }
+
     /**
     * Logging function to debug.log
     */

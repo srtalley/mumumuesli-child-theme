@@ -1,6 +1,14 @@
 <?php
 // Exit if accessed directly
+
+// www.mumumuesli.com.cdn.cloudflare.net
+
 if ( !defined('ABSPATH')) exit;
+
+// Disable auto updates
+
+add_filter( 'auto_update_plugin', '__return_false' );
+add_filter( 'auto_update_theme', '__return_false' );
 
 /* Add custom functions below */
 add_action( 'wp_enqueue_scripts', 'ds_enqueue_assets', 10 );

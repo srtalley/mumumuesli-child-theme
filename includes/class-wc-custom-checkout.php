@@ -6,7 +6,7 @@ class WooCommerce_Custom_Checkout {
     public function __construct() {
         add_filter ( 'woocommerce_checkout_cart_item_quantity', array($this, 'wc_checkout_remove_qty'), 10, 2 );
         add_filter ( 'woocommerce_cart_item_name', array($this, 'wc_checkout_modify_order'), 10, 3 );
-        add_action( 'init', array($this, 'load_ajax') );
+        // add_action( 'init', array($this, 'load_ajax') );
         add_action( 'wp_footer', array($this, 'wc_checkout_add_wc_custom_checkout_js'), 10 );
         add_action( 'wp_ajax_nopriv_update_order_review', array($this, 'wc_checkout_update_order_review') );
         add_action( 'wp_ajax_update_order_review', array($this, 'wc_checkout_update_order_review') );
