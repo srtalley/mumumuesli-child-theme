@@ -52,28 +52,10 @@ class MuMuMuesli_WooCommerce {
             add_action( 'init', array(&$this, 'mumu_remove_product_category_description') );
 
 
-            // Fix the HighendWP error with SG Cache
-            add_action('init', array($this, 'fix_highend_wp_sg_errors'), 100);
 
         } // end if woocommerce
     } // end function construct
 
-    /** 
-     * Fix for the Highend WP theme that calls WC()->cart on the backend when
-     * the SiteGround optimizer plugin settings are accessed. This unhooks the
-     * Highend WP function and replaces it with a fixed one.
-     */
-    public function fix_highend_wp_sg_errors() {
-        remove_filter( 'highend_custom_js_localized', 'highend_woocommerce_localize_vars' );
-        add_filter( 'highend_custom_js_localized', array($this, 'mumu_highend_woocommerce_localize_vars') );
-    }
-    public function mumu_highend_woocommerce_localize_vars($localized) {
-        $localized['cart_url']   = wc_get_cart_url();
-        if ( is_object( WC()->cart ) ) {
-            $localized['cart_count'] = WC()->cart->get_cart_contents_count();
-        }
-        return $localized;
-    }
 
     /**
      * The theme templates do not implement the
@@ -98,10 +80,9 @@ class MuMuMuesli_WooCommerce {
     */
 
     public function ds_woocommerce_add_standard_checkout(){
-
-        echo '<div class="row wc-checkout-and-paypal-wrapper clearfix"><div class="col-9"></div><div class="col-3">';
+        echo '<div class="wc-checkout-and-paypal-wrapper">';
         do_action( 'woocommerce_proceed_to_checkout' );
-        echo '</div></div>';
+        echo '</div>';
     } 
 
     /**
@@ -471,10 +452,6 @@ class MuMuMuesli_WooCommerce {
     }
 
     public function dst_wp_schema_pro_schema_product($schema, $data, $post) {
-
-        $schema['itemCondition'] = 'new';
-        $schema['mpn'] = $schema['sku'];
-
         $product_permalink = get_the_permalink($post->ID);
 
         if(function_exists('EWD_URP_Get_Aggregate_Score')) {
@@ -516,7 +493,6 @@ class MuMuMuesli_WooCommerce {
                 )
             );
         }
-
         return $schema;
 
     }
