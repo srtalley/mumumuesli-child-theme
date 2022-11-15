@@ -1,4 +1,4 @@
-//version: 1.1.4
+//version: 1.1.5
 jQuery(function($) {
   $(document).ready(function(){
 
@@ -28,16 +28,19 @@ jQuery(function($) {
     }
 
     // Select the Square payment method
-    if($('.woocommerce-checkout').length) {
-      // var pay_by_cc = param('pay_by_cc');
-      var pay_by_cc = getUrlParameter('pay_by_cc');
-      if(pay_by_cc == '1') { 
-        if($('#payment_method_square_credit_card').length){
-          $('#payment_method_square_credit_card').click();
-        }
-      }
+    // if($('.woocommerce-checkout').length) {
+    //   // var pay_by_cc = param('pay_by_cc');
+    //   var pay_by_cc = getUrlParameter('pay_by_cc');
+    //   if(pay_by_cc == '1') { 
+    //     if($('#payment_method_square_credit_card').length){
+    //       $('#payment_method_square_credit_card').click();
+    //     }
+    //   }
+    // }
+    // set the stars to five by default on the leave a review form
+    if($('.ewd-urp-review-form').length) {
+      $('.ewd-urp-star-input[data-reviewscore="5"]').click();
     }
-
   }); // end document ready
 
   var getUrlParameter = function getUrlParameter(sParam) {
