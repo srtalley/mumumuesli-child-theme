@@ -2,8 +2,8 @@
 Theme Name: HighendWP Child Theme
 Template: HighendWP
 Author: Dusty Sun LLC
-Version: 1.9.3a
-Updated: 2022-11-10
+Version: 1.9.4
+Updated: 2022-12-30
 */
 /* roboto-regular - latin */
 @font-face {
@@ -641,21 +641,21 @@ label[for="mailchimp_woocommerce_newsletter"].woocommerce-form__label.woocommerc
     padding: 0 20px 50px;
 }
 /* hide the pinterest button in the reviews */
-.ewd-urp-reviews span[class^="PIN_"] {display: none} 
-.ewd-urp-filtering {
+.wpb_wrapper .ewd-urp-reviews span[class^="PIN_"] {display: none} 
+.wpb_wrapper .ewd-urp-filtering {
     margin-top: 12px;
     margin-bottom: 0;
 }
 
-.ewd-urp-review-div {
+.wpb_wrapper .ewd-urp-review-div {
     margin-top: 15px;
     position: relative;
 }
-.ewd-urp-review-skin-simplestars .ewd-urp-graphic-full {
+.wpb_wrapper .ewd-urp-review-skin-simplestars .ewd-urp-graphic-full {
     position: relative;
 }
-.ewd-urp-review-skin-simplestars .ewd-urp-graphic-full::before,
-.ewd-urp-review-form .ewd-urp-star-input.ewd-urp-star-input-filled::before {
+.wpb_wrapper .ewd-urp-review-skin-simplestars .ewd-urp-graphic-full::before,
+.wpb_wrapper .ewd-urp-review-form .ewd-urp-star-input.ewd-urp-star-input-filled::before {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23ffc733'%3E%3Cpath d='M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z'/%3E%3C/svg%3E") !important;
     background-repeat: no-repeat;
     background-size: 20px;
@@ -668,11 +668,11 @@ label[for="mailchimp_woocommerce_newsletter"].woocommerce-form__label.woocommerc
     right: 0;
     top: 0;
 }
-.ewd-urp-review-skin-simplestars .ewd-urp-graphic-empty {
+.wpb_wrapper .ewd-urp-review-skin-simplestars .ewd-urp-graphic-empty {
     position: relative;
 }
-.ewd-urp-review-skin-simplestars .ewd-urp-graphic-empty::before,
-.ewd-urp-review-form .ewd-urp-star-input::before {
+.wpb_wrapper .ewd-urp-review-skin-simplestars .ewd-urp-graphic-empty::before,
+.wpb_wrapper .ewd-urp-review-form .ewd-urp-star-input::before {
     background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' data-prefix='far' data-icon='star' class='svg-inline--fa fa-star fa-w-18' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3Cpath fill='%239d9d9d' d='M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z'%3E%3C/path%3E%3C/svg%3E") !important;
     background-repeat: no-repeat;
     background-size: 20px;
@@ -686,7 +686,7 @@ label[for="mailchimp_woocommerce_newsletter"].woocommerce-form__label.woocommerc
     top: 0;
 }
 
-.ewd-urp-review-form .ewd-urp-star-input {
+.wpb_wrapper .ewd-urp-review-form .ewd-urp-star-input {
     position: relative;
 }
 .single-product div.product .woocommerce-tabs ul.tabs::before {
@@ -766,7 +766,7 @@ label[for="mailchimp_woocommerce_newsletter"].woocommerce-form__label.woocommerc
 form#review * {
     box-sizing: border-box;
 }
-.ewd-urp-review-form .form-field, .ewd-urp-review-form .ewd-urp-meta-field, .ewd-urp-submit, .ewd-urp-captcha-response, .ewd-urp-captcha-div {
+.wpb_wrapper .ewd-urp-review-form .form-field, .wpb_wrapper .ewd-urp-review-form .ewd-urp-meta-field, .wpb_wrapper .ewd-urp-submit, .wpb_wrapper .ewd-urp-captcha-response, .wpb_wrapper .ewd-urp-captcha-div {
     float: none;
 }
 
@@ -795,32 +795,33 @@ form#review .ewd-urp-review-explanation span {
 form#review label[for="explanation"] {
     padding: 0;
 }
-.ewd-urp-filtering {
+.wpb_wrapper .ewd-urp-filtering {
     display: none;
 }
-.ewd-urp-review-graphic {
+.wpb_wrapper .ewd-urp-review-graphic {
     margin-top: 4px;
 }
-.ewd-urp-graphic-full {
+.wpb_wrapper .ewd-urp-graphic-full {
     color: #e6b800;
 }
-.ewd-urp-reviews-nav {
+.wpb_wrapper .ewd-urp-reviews-nav {
     margin-top: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-size: 18px;
     font-weight: bold;
+    float: none !important;
 }
-.ewd-urp-reviews-nav span.pagination-links {
+.wpb_wrapper .ewd-urp-reviews-nav span.pagination-links {
     flex: 1 1 auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
-.ewd-urp-reviews-nav span.pagination-links span.paging-input {
+.wpb_wrapper .ewd-urp-reviews-nav span.pagination-links span.paging-input {
     flex-grow: 1;
     text-align: center;
 }
-.ewd-urp-reviews .next-page, .ewd-urp-reviews .prev-page, .ewd-urp-reviews .last-page, .ewd-urp-reviews .first-page {
+.wpb_wrapper .ewd-urp-reviews .next-page, .wpb_wrapper .ewd-urp-reviews .prev-page, .wpb_wrapper .ewd-urp-reviews .last-page, .wpb_wrapper .ewd-urp-reviews .first-page {
     background-color: #000;
     border-color: #000;
     color: #fff;
@@ -830,23 +831,23 @@ form#review label[for="explanation"] {
     height: 30px;
     text-align: center;
 }
-.ewd-urp-reviews .next-page:hover, .ewd-urp-reviews .prev-page:hover, .ewd-urp-reviews .last-page:hover, .ewd-urp-reviews .first-page:hover {
+.wpb_wrapper .ewd-urp-reviews .next-page:hover, .wpb_wrapper .ewd-urp-reviews .prev-page:hover, .wpb_wrapper .ewd-urp-reviews .last-page:hover, .wpb_wrapper .ewd-urp-reviews .first-page:hover {
     background-color: #d32f0e;
     border-color: #d32f0e;
 }
-.ewd-urp-filtering {
-    display: none;
+.wpb_wrapper .ewd-urp-filtering {
+    display: none !important;
 }
-.ewd-urp-summary-statistics-div {
+.wpb_wrapper .ewd-urp-summary-statistics-div {
     margin: 10px 0 20px;
 }
-.ewd-urp-review-div {
+.wpb_wrapper .ewd-urp-review-div {
     margin-top: 35px;
 }
-.ewd-urp-review-div:first-of-type {
+.wpb_wrapper .ewd-urp-review-div:first-of-type {
     margin-top: 0;
 }
-.ewd-urp-review-div:after {
+.wpb_wrapper .ewd-urp-review-div:after {
     content: '';
     width: 100%;
     height: 1px;
@@ -855,14 +856,14 @@ form#review label[for="explanation"] {
     margin: 0;
 }
 
-.ewd-urp-review-div:last-child:after {
+.wpb_wrapper .ewd-urp-review-div:last-child:after {
     display: none;
 }
 
 .single-product .vc_row .ewd-urp-review-div:after {
     margin-top: 15px;
 }
-.ewd-urp-review-product-name {
+.wpb_wrapper .ewd-urp-review-product-name {
     display: none;
 }
 .floating-review-block {
@@ -907,24 +908,24 @@ form#review label[for="explanation"] {
 .floating-review.google-review:hover {
     background-color: #333333;
 }
-.ewd-urp-summary-statistics-header {
+.wpb_wrapper .ewd-urp-summary-statistics-header {
     margin: 0;
 }
 
-div#ewd-urp-review-list {
+.wpb_wrapper div#ewd-urp-review-list {
     padding-bottom: 20px;
 }
 
-.ewd-urp-review-header {
+.wpb_wrapper .ewd-urp-review-header {
     display: flex;
     flex-direction: column;
 }
-.ewd-urp-flag-inappropriate {
+.wpb_wrapper .ewd-urp-flag-inappropriate {
     position: absolute;
     right: 0;
     top: 5px;
 }
-.ewd-urp-review-score {
+.wpb_wrapper .ewd-urp-review-score {
     margin-bottom: 6px;
 }
 
